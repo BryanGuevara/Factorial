@@ -33,7 +33,7 @@ public class Factorial {
                 System.out.println("==================================================================================================================");
                 return;
             }
-            
+
             BigInteger factorial = BigInteger.ONE;
             for (int i = num; i > 1; i--) {
                 factorial = factorial.multiply(BigInteger.valueOf(i));
@@ -41,9 +41,21 @@ public class Factorial {
             }
             factorial = factorial.multiply(BigInteger.ONE);
 
+            String factorialStr = factorial.toString();
+            StringBuilder result = new StringBuilder();
+            int largo = 0;
+            for (char c : factorialStr.toCharArray()) {
+                if (largo >= 105) {
+                    result.append("\n");
+                    largo = 0;
+                }
+                result.append(c);
+                largo++;
+            }
+
             System.out.println("1");
             System.out.println("_________");
-            System.out.println(factorial);
+            System.out.println(result.toString());
             System.out.println("==================================================================================================================");
 
         } catch (InputMismatchException e) {
